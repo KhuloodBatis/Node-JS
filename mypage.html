@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" />
+    <title>Array</title>
+</head>
+
+<body>
+    <!-- <div id="students" style="font-size: 30px"></div> -->
+    <div style="align-items:center ; margin:200px; ">
+        <label for="">Id,Title,Auther,Price,Quntity</label><br>
+        <input type="text" id="Book">
+        <br>
+
+        <button id="sub">addBook</button>
+        <button id="del">delet</button>
+        <button id="del">search</button>
+        <div id="result"></div>
+    </div>
+
+
+
+</body>
+
+<script>
+    var arr = []
+    document.getElementById("sub").addEventListener("click", function() {
+        console.log("click")
+        var Book = document.getElementById("Book").value
+        arr.push(Book)
+        document.getElementById("result").innerHTML = `${arr} `
+        document.getElementById("Book").value = ""
+
+
+    })
+
+    document.getElementById("del").addEventListener("click", function() {
+        console.log("click")
+        var Book = document.getElementById("Book").value
+        arr.pop(Book)
+        document.getElementById("result").innerHTML = arr.toString() + " "
+    })
+</script>
+
+</html>

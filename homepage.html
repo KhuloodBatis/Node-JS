@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Book</title>
+</head>
+
+<body>
+    <div style="">
+        <h1>Book Library </h1>
+        <p id="demo">Welcome in my project</p>
+        <label id="Id" style="display:none;">Book Id </label><br>
+        <input type="text" id="IdText" style="display:none;"><br>
+        <label id="Title" style="display:none;">Book Title</label><br>
+        <input type="text" id="TitleText" style="display:none;"><br>
+        <label id="Auther" style="display:none;">Book Auther</label><br>
+        <input type="text" id="AutherText" style="display:none;"><br>
+        <label id="Price" style="display:none;">Book price</label><br>
+        <input type="text" id="PriceText" style="display:none;"><br>
+        <label id="Quntity" style="display:none;">Book Quntity</label><br>
+        <input type="text" id="QuntityText" style="display:none;"><br>
+
+        <button type="button" onclick="showBook()">show </button>
+        <button type="button" onclick="window.print()">print this page </button>
+        <button type="button" onclick="hideBook()">hide</button><br>
+        <button type="button" onclick="addBook()">add</button>
+        <button type="button" onclick="deleteBook()">delete last</button>
+        <button type="button" onclick="queryId()"> search By Id</button><br>
+        <button type="button" onclick="queryName()"> search By Title</button>
+        <button type="button" onclick="queryAuther()"> search by Auther</button>
+        <button type="button" onclick="invoce()"> invoce</button>
+
+    </div>
+
+
+
+
+</body>
+<script>
+    let books = [];
+    let Id = 0
+    document.getElementById('IdText').value = ++Id;
+
+    function showBook() {
+        document.getElementById('Id').style.display = "block";
+        document.getElementById('IdText').style.display = "block";
+        document.getElementById('Title').style.display = "block";
+        document.getElementById('TitleText').style.display = "block";
+        document.getElementById('Auther').style.display = "block";
+        document.getElementById('AutherText').style.display = "block";
+        document.getElementById('Price').style.display = "block";
+        document.getElementById('PriceText').style.display = "block";
+        document.getElementById('Quntity').style.display = "block";
+        document.getElementById('QuntityText').style.display = "block";
+    }
+
+    function addBook() {
+        books.push([Id, Title.value, Auther.value, Price.value, Quntity.value])
+        alert("create book ...") + books[books.length - 1]
+        document.getElementById('IdText').value = ++Id;
+        document.getElementById('TitleText').value = "enter New title";
+        document.getElementById('AutherText').value = "enter New auther";
+        document.getElementById('PriceText').value = "enter New price";
+        document.getElementById('QuntityText').value = "enter New quntity";
+
+    }
+
+    function hideBook() {
+        document.getElementById('Id').style.display = "none";
+        document.getElementById('IdText').style.display = "none";
+        document.getElementById('Title').style.display = "none";
+        document.getElementById('TitleText').style.display = "none";
+        document.getElementById('Auther').style.display = "none";
+        document.getElementById('AutherText').style.display = "none";
+        document.getElementById('Price').style.display = "none";
+        document.getElementById('PriceText').style.display = "none";
+        document.getElementById('Quntity').style.display = "none";
+        document.getElementById('QuntityText').style.display = "none";
+    }
+
+    function deleteBook() {
+        books.pop();
+        document.getElementById("Idtext").value = --Id
+    }
+
+    function queryId() {
+        let qId = prompt("enter Book Id ", "1")
+        showBook();
+        for (let i = 1; i <= Id; i++)
+            if (books[i - 1][0] == qId) {
+                IdText.value = qId;
+                TitleText.value = books[i - 1][1];
+                AutherText.value = books[i - 1][2];
+                PriceText.value = books[i - 1][3];
+                QuntityText.value = books[i - 1][4];
+            }
+    }
+
+    function queryName() {
+        let qName = prompt("enter Book Title ", "1")
+        showBook();
+        for (let i = 1; i <= Id; i++)
+            if (books[i - 1][1] == qName) {
+
+                IdText.value = books[i - 1][0];
+                TitleText.value = qName;
+                AutherText.value = books[i - 1][2];
+                PriceText.value = books[i - 1][3];
+                QuntityText.value = books[i - 1][4];
+            }
+    }
+
+    function queryAuther() {
+        let qAuther = prompt("enter Book Auther ", "1")
+        showBook();
+        let i;
+        for (i = 1; i <= Id; i++)
+            if (books[i - 1][2] == qAuther) {
+
+                IdText.value = books[i - 1][0];
+                TitleText.value = books[i - 1][1];
+                AutherText.value = qAuther;
+                PriceText.value = books[i - 1][3];
+                QuntityText.value = books[i - 1][4];
+            }
+    }
+
+    function invoce() {
+        let book = prompt("Enter book name:", "");
+        let quntity = prompt("Enter quntity:", "1");
+        let balence = prompt("Enter the balence:", "");
+        let i;
+        for (i = 1; i <= id; i++)
+            if (books[i - 1][1] == book) {
+                let price = Number(books[i - 1], [3]);
+                let q = Number(books[i - 1], [4]);
+                if (q < quntity)
+                    alert("The required quntity is less than the currnt ")
+                else if (balence < price * quntity)
+                    alert("the balence is not enough.");
+                else {
+                    q = q - quntity;
+                    books[i - 1][4] = q;
+                    alert("the new quntity is :" + q.toString)
+                    balence = balence - price * quntity;
+                    alert("the new balenc is :" + balenc.toString)
+                    alert("The invoce of " + quntity.toString + "book is done ")
+                }
+
+            }
+    }
+</script>
+
+</html>
