@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="#" />
+    <title>Document</title>
+</head>
+<body>
+    <div style="align-items:center ; margin:200px; ">
+        <h2>search</h2>
+        <input type="text" id="search">
+        <br>
+        <h2>replace  </h2>
+        <br>
+        <input type="text" id="replace">
+        <br>
+       
+      
+        <br>
+
+        <button  onclick=replace() >replace </button>
+       
+      
+
+        
+        <p id="text" style="border:2px ; border-color: black; width: 1024px;height: 200px;">
+         welcome to JavaScript And HTML 
+        </p>
+    </div>
+    <script>
+        // document.getElementById("butReplace").addEventListener("click",function(){
+        //     console.log("click");
+        //      let searchText = document.getElementsById("search").value  
+        //      let replaceText = document.getElementsById("replace").value
+        //      let text = document.getElementsById("text").innerHtml
+        //      let newText = document.getElementById("text")
+        //      let reg = new RegExp(searchText,'gi')
+        //      text = text.replace(reg,replaceText)
+        //      newText.innerHTML = text
+        // })
+        function replace(){
+          let searchText = document.getElementsById("search").value  
+          let replaceText = document.getElementsById("replace").value
+          let text = document.getElementsById("text").innerHtml
+          let newText = document.getElementById("text")
+          let reg =new RegExp(searchText,'gi')
+          text = text.replace(reg,replaceText)
+          newText.innerHTML = text
+
+        }
+    </script>
+</body>
+</html>
